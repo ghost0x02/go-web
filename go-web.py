@@ -162,6 +162,7 @@ elif islemno == "2":
         print(f"An error occurred: {e}")
 
 elif islemno == "3":
+    print(Fore.RED + '')  
     print('''
  █████████     ██████    █████
  ███░░░░░███  ███░░░░███ ░░███
@@ -171,6 +172,8 @@ elif islemno == "3":
  ███    ░███░░███ ░░████  ░███      █
 ░░█████████  ░░░██████░██ ███████████
  ░░░░░░░░░     ░░░░░░ ░░ ░░░░░░░░  ''')
+    print(Style.RESET_ALL)
+    print(Fore.CYAN + '')
     print('This code is taken from antitool made by ENESXSECİT AND GHOST0x02')
     print('---------------------------------------------------')
     hedefip = input("Enter the SQL explicit site in quotes: ")
