@@ -7,7 +7,7 @@ import subprocess
 import re
 import requests
 
-os.system('clear')
+os.system("clear")
 
 print(Fore.RED + '')
 
