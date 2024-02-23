@@ -1,4 +1,3 @@
-import os
 import socket
 import sys
 from concurrent.futures import ThreadPoolExecutor
@@ -88,6 +87,7 @@ islemno = input("root@GOweb:~ ")
 print(Style.RESET_ALL)
 
 if islemno == "1":
+    os.system("clear")
     print(Fore.YELLOW + 'A DETAILED SCANNING IS BEING PERFORMED IN ONE MINUTE...')
     time.sleep(2)
     print(Style.RESET_ALL)
@@ -141,6 +141,18 @@ if islemno == "1":
         scan_open_ports(target_host)
 
 elif islemno == "2":
+    os.system("clear")
+    print(Fore.MAGENTA + "")
+    print("""
+
+
+     ___       _______  .___  ___.  __  .__   __. 
+    /   \     |       \ |   \/   | |  | |  \ |  | 
+   /  ^  \    |  .--.  ||  \  /  | |  | |   \|  | 
+  /  /_\  \   |  |  |  ||  |\/|  | |  | |  . `  | 
+ /  _____  \  |  '--'  ||  |  |  | |  | |  |\   | 
+/__/     \__\ |_______/ |__|  |__| |__| |__| \__| """)
+
 
     print(Style.RESET_ALL)
     print(Fore.CYAN + '')
@@ -162,6 +174,7 @@ elif islemno == "2":
         print(f"An error occurred: {e}")
 
 elif islemno == "3":
+    os.system("clear")
     print(Fore.RED + '')  
     print('''
  █████████     ██████    █████
@@ -190,6 +203,7 @@ elif islemno == "3":
     os.system("python3 sqlmap.py -u " + hedefip + " -D " + db + " -T " + tb + " -C " + cl + " --dump")
 
 elif islemno == "4":
+    os.system("clear")
     print(Fore.MAGENTA + '')
     print("""
     >>==========================================<<
@@ -278,3 +292,6 @@ elif islemno == "4":
         if re.match(r'^((?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,6}$', domain):
             print(f"Your domain name looks like this: {domain}")
             dig_domain(domain)
+
+
+
