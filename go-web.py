@@ -6,6 +6,7 @@ import time
 import subprocess
 import re
 import requests
+import os
 
 os.system("clear")
 
