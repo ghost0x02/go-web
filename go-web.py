@@ -27,9 +27,8 @@ print(Style.RESET_ALL)
 print(Fore.YELLOW + '')
 
 print('___________________________________________________________')
-
 print('CODED BY ENESXSEC AND GHOST0x02')
-print('services my instagram account: enesxsecit')
+print('services my instagram account: xsecit')
 print('THE PROGRAM WORKS WITH ROOT!!!')
 print('___________________________________________________________')
 
@@ -75,7 +74,7 @@ print('''
 ++++++++++++++++++
 2) ADMİN FİNDER
 ++++++++++++++++++
-3) SQL TOOLS
+3) OTO SQL
 ++++++++++++++++++
 4) DİG SCANNER
 ++++++++++++++++++
@@ -293,6 +292,3 @@ elif islemno == "4":
         if re.match(r'^((?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,6}$', domain):
             print(f"Your domain name looks like this: {domain}")
             dig_domain(domain)
-
-
-
