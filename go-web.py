@@ -25,11 +25,12 @@ print(Fore.GREEN + '')
 print('GITHUB ACCOUNT [https://github.com/ghost0x02]')
 print(Style.RESET_ALL)
 print(Fore.YELLOW + '')
-
 print('___________________________________________________________')
-print('CODED BY ENESXSEC AND GHOST0x02')
+print(Fore.MAGENTA + 'CODED BY ENESXSEC AND GHOST0x02')
+print(Style.RESET_ALL)
+print(Fore.YELLOW + '')
 print('services my instagram account: xsecit')
-print('THE PROGRAM WORKS WITH ROOT!!!')
+print('THIS SOFTWARE IS FOR TESTING!!!')
 print('___________________________________________________________')
 
 def yukleme_animasyonu():
