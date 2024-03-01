@@ -293,5 +293,4 @@ elif islemno == "4":
             print(f"Your domain name looks like this: {domain}")
             dig_domain(domain)
 elif islemno == "5":
-
-    print("see you...") 
+    print(Fore.GREEN + 'See you')
