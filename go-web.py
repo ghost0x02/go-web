@@ -292,3 +292,6 @@ elif islemno == "4":
         if re.match(r'^((?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,6}$', domain):
             print(f"Your domain name looks like this: {domain}")
             dig_domain(domain)
+elif islemno == "5":
+
+    print("see you...") 
