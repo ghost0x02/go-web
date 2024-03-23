@@ -87,17 +87,17 @@ islemno = input("root@GOweb:~ ")
 print(Style.RESET_ALL)
 
  if islemno == "1":
-        port_scanner()
-    elif islemno == "2":
-        admin_finder()
-    elif islemno == "3":
-        oto_sql()
-    elif islemno == "4":
-        dig_scanner()
-    elif islemno == "5":
-        exit_program()
-    else:
-        print("Invalid selection!")
+    port_scanner()
+elif islemno == "2":
+    admin_finder()
+elif islemno == "3":
+    oto_sql()
+elif islemno == "4":
+    dig_scanner()
+elif islemno == "5":
+    exit_program()
+else:
+    print("Invalid selection!")
 
 if __name__ == "__main__":
     if islemno == "1":
