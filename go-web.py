@@ -86,77 +86,77 @@ print(Fore.MAGENTA + '')
 islemno = input("root@GOweb:~ ")
 print(Style.RESET_ALL)
 
-if __name__ == "__main__":
-    if islemno == "1":
-        os.system("clear")
-        print(Fore.YELLOW + 'A DETAILED SCANNING IS BEING PERFORMED IN ONE MINUTE...')
-        time.sleep(2)
-        print(Style.RESET_ALL)
-        print(Fore.MAGENTA + '')
-        print(''' 
+if islemno == "1":
+    os.system("clear")
+    print(Fore.YELLOW + 'A DETAILED SCANNING IS BEING PERFORMED IN ONE MINUTE...')
+    time.sleep(2)
+    print(Style.RESET_ALL)
+    print(Fore.MAGENTA + '')
+    print(''' 
 
-        Xport 1.1v
-     coded by enesxsec
-    \_________________/
-    |       | |       |
-    |       | |       |
-    |       | |       |
-    |_______| |_______|
-    |_______   _______|
-    |       | |       |
-    |       | |       |
-     \      | |      /
-      \     | |     /
-       \    | |    /
-        \   | |   /
-         \  | |  /
-          \ | | /
-           \| |/
-            \_/
+    Xport 1.1v
+ coded by enesxsec
+\_________________/
+|       | |       |
+|       | |       |
+|       | |       |
+|_______| |_______|
+|_______   _______|
+|       | |       |
+|       | |       |
+ \      | |      /
+  \     | |     /
+   \    | |    /
+    \   | |   /
+     \  | |  /
+      \ | | /
+       \| |/
+        \_/
 
-        
+
 
 ''')
 
-        def scan_port(target_host, target_port):
-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.settimeout(1)
-            result = sock.connect_ex((target_host, target_port))
-            sock.close()
-            if result == 0:
-                service_name = socket.getservbyport(target_port)
-                return target_port, service_name
+    def scan_port(target_host, target_port):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(1)
+        result = sock.connect_ex((target_host, target_port))
+        sock.close()
+        if result == 0:
+            service_name = socket.getservbyport(target_port)
+            return target_port, service_name
 
-        def scan_open_ports(target_host):
-            print(Fore.GREEN + "This process will take a while...")
-            print(Style.RESET_ALL)
+    def scan_open_ports(target_host):
+        print(Fore.GREEN + "This process will take a while...")
+        print(Style.RESET_ALL)
 
-            try:
-                target_ip = socket.gethostbyname(target_host)
-            except socket.gaierror:
-                print("Invalid or not found.")
-                return
+        try:
+            target_ip = socket.gethostbyname(target_host)
+        except socket.gaierror:
+            print("Invalid or not found.")
+            return
 
-            open_ports = []
+        open_ports = []
 
-            with ThreadPoolExecutor() as executor:
-                futures = [executor.submit(scan_port, target_ip, port) for port in range(1, 1025)]
+        with ThreadPoolExecutor() as executor:
+            futures = [executor.submit(scan_port, target_ip, port) for port in range(1, 1025)]
 
-                for future in futures:
-                    result = future.result()
-                    if result:
-                        port, service_name = result
-                        print(f"Port {port}: {Fore.GREEN}Open{Style.RESET_ALL} - Service: {service_name}")
+            for future in futures:
+                result = future.result()
+                if result:
+                    port, service_name = result
+                    print(f"Port {port}: {Fore.GREEN}Open{Style.RESET_ALL} - Service: {service_name}")
 
-                        open_ports.append(port)
+                    open_ports.append(port)
 
-            if open_ports:
-                print(Fore.GREEN + f"\nOpen ports for {target_host}: {open_ports}" + Style.RESET_ALL)
-            else:
-                print(Fore.RED + "No open ports found." + Style.RESET_ALL)
+        if open_ports:
+            print(Fore.GREEN + f"\nOpen ports for {target_host}: {open_ports}" + Style.RESET_ALL)
+        else:
+            print(Fore.RED + "No open ports found." + Style.RESET_ALL)
 
-        target_host = input("Enter host: ")
-        scan_open_ports(target_host)
+    target_host = input("Enter host: ")
+    scan_open_ports(target_host)
+
 
 
 elif islemno == "2":
