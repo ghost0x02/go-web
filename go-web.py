@@ -11,10 +11,8 @@ import re
 import requests
 import os
 
-def main():
-
-    os.system("pip3 install python-nmap")
-    os.system("clear")
+os.system("pip3 install python-nmap")
+os.system("clear")
 
 print(Fore.RED + '')
 
