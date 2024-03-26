@@ -154,6 +154,7 @@ while not target_host:
     
 scan_open_ports(target_host)
 
+
 elif islemno == "2":
     os.system("clear")
     print(Fore.MAGENTA + "")
