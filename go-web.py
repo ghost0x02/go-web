@@ -154,7 +154,6 @@ while not target_host:
     
 scan_open_ports(target_host)
 
-
 elif islemno == "2":
     os.system("clear")
     print(Fore.MAGENTA + "")
@@ -225,5 +224,4 @@ elif islemno == "3":
     os.system("python3 sqlmap.py -u " + hedefip + " -D " + db + " -T " + tb + " -C " + cl + " --dump")
 
 elif islemno == "4":
-    print(Fore.GREEN + 'See you later...') 
-    print(Style.RESET_ALL) 
+    print(Fore.GREEN + 'See you later...')
