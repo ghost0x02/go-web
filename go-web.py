@@ -83,7 +83,7 @@ print(Fore.MAGENTA + '')
 islemno = input("root@GOweb:~ ")
 print(Style.RESET_ALL)
 
-if islemno == "1":
+ if islemno == "1":
     os.system("clear")
     print(Fore.YELLOW + 'A detailed scan will be done in one minute...')
     time.sleep(2)
@@ -154,7 +154,7 @@ while not target_host:
     
 scan_open_ports(target_host)
 
-elif islemno == "2":
+ elif islemno == "2":
     os.system("clear")
     print(Fore.MAGENTA + "")
     print("""
@@ -195,7 +195,7 @@ _)      \.___.,|     .'
     except subprocess.CalledProcessError as e:
         print(f"An error occurred: {e}")
 
-elif islemno == "3":
+ elif islemno == "3":
     os.system("clear")
     print(Fore.RED + '')  
     print('''
@@ -223,5 +223,5 @@ elif islemno == "3":
     cl = input("Choose which columns you will capture: ")
     os.system("python3 sqlmap.py -u " + hedefip + " -D " + db + " -T " + tb + " -C " + cl + " --dump")
 
-elif islemno == "4":
+ elif islemno == "4":
     print(Fore.GREEN + 'See you later...')
