@@ -108,7 +108,7 @@ if islemno == "1":
       \ | | /
        \| |/
         \_/
-örnek: google.com
+example: google.com
 ''')   
 
     def scan_port(target_host, target_port):
