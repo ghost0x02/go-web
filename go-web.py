@@ -1,6 +1,5 @@
 
 import scapy.all as scapy
-import nmap
 import socket
 import sys
 from concurrent.futures import ThreadPoolExecutor
@@ -11,7 +10,6 @@ import re
 import requests
 import os
 
-os.system("pip3 install python-nmap")
 os.system("clear")
 
 print(Fore.RED + '')
