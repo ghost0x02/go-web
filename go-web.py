@@ -147,6 +147,7 @@ def scan_open_ports(target_host):
     else:
         print(Fore.RED + "no open port found." + Style.RESET_ALL)
 
+if __name__ == "__main__":
 while True:
     target_host = input("Target Host: ")
     if target_host:
