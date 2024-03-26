@@ -152,9 +152,9 @@ while not target_host:
     print("Please enter a valid host name.")
     target_host = input("Target Host: ")
     
-scan_open_ports(target_host)
+  scan_open_ports(target_host)
 
- elif islemno == "2":
+elif islemno == "2":
     os.system("clear")
     print(Fore.MAGENTA + "")
     print("""
@@ -195,7 +195,7 @@ _)      \.___.,|     .'
     except subprocess.CalledProcessError as e:
         print(f"An error occurred: {e}")
 
- elif islemno == "3":
+elif islemno == "3":
     os.system("clear")
     print(Fore.RED + '')  
     print('''
@@ -223,5 +223,5 @@ _)      \.___.,|     .'
     cl = input("Choose which columns you will capture: ")
     os.system("python3 sqlmap.py -u " + hedefip + " -D " + db + " -T " + tb + " -C " + cl + " --dump")
 
- elif islemno == "4":
+elif islemno == "4":
     print(Fore.GREEN + 'See you later...')
