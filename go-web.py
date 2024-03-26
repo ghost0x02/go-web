@@ -111,7 +111,7 @@ if islemno == "1":
 example: google.com
 ''')   
 
- def scan_port(target_host, target_port):
+def scan_port(target_host, target_port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(1)
     result = sock.connect_ex((target_host, target_port))
