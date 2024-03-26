@@ -1,7 +1,5 @@
-
-import scapy.all as scapy
-import socket
 import sys
+import socket
 from concurrent.futures import ThreadPoolExecutor
 from colorama import Fore, Style
 import time
@@ -13,7 +11,6 @@ import os
 os.system("clear")
 
 print(Fore.RED + '')
-
 print('.d8888b.   .d88888b.        888       888 8888888888 888888b.')   
 print('d88P  Y88b d88P" "Y88b      888   o   888 888        888  "88b')
 print('888    888 888     888      888  d8b  888 888        888  .88P')
@@ -78,9 +75,7 @@ print('''
 ++++++++++++++++++
 3) OTO SQL
 ++++++++++++++++++
-4) DİG 'DNS' SCANNER
-++++++++++++++++++
-5) EXIT
+4) EXIT
 ++++++++++++++++++
 ''')
 print(Style.RESET_ALL)
@@ -88,16 +83,13 @@ print(Fore.MAGENTA + '')
 islemno = input("root@GOweb:~ ")
 print(Style.RESET_ALL)
 
-
 if islemno == "1":
-
     os.system("clear")
     print(Fore.YELLOW + 'A DETAILED SCANNING IS BEING PERFORMED IN ONE MINUTE...')
     time.sleep(2)
     print(Style.RESET_ALL)
     print(Fore.MAGENTA + '')
     print(''' 
-
     Xport 1.1v
  coded by enesxsec
 \_________________/
@@ -116,9 +108,6 @@ if islemno == "1":
       \ | | /
        \| |/
         \_/
-
-
-
 ''')
 
     def scan_port(target_host, target_port):
@@ -162,19 +151,26 @@ if islemno == "1":
     scan_open_ports(target_host)
 
 elif islemno == "2":
-
     os.system("clear")
     print(Fore.MAGENTA + "")
     print("""
-
-
-     ___       _______  .___  ___.  __  .__   __. 
-    /   \     |       \ |   \/   | |  | |  \ |  | 
-   /  ^  \    |  .--.  ||  \  /  | |  | |   \|  | 
-  /  /_\  \   |  |  |  ||  |\/|  | |  | |  . `  | 
- /  _____  \  |  '--'  ||  |  |  | |  | |  |\   | 
-/__/     \__\ |_______/ |__|  |__| |__| |__| \__| """)
-
+        _nnnn_
+        dGGGGMMb
+       @p~qp~~qMb
+       M|@||@) M|
+       @,----.JM|
+      JS^\__/  qKL
+     dZP        qKRb
+    dZP          qKKb
+   fZP            SMMb
+   HZM            MMMM
+   FqM            MMMM
+ __| ".        |\dS"qML
+ |    `.       | `' \Zq
+_)      \.___.,|     .'
+\____   )MMMMMP|   .'
+     `-'       `--' hjm
+""")
 
     print(Style.RESET_ALL)
     print(Fore.CYAN + '')
@@ -194,9 +190,8 @@ elif islemno == "2":
         subprocess.run(command, shell=True, check=True)
     except subprocess.CalledProcessError as e:
         print(f"An error occurred: {e}")
-        
-elif islemno == "3":
 
+elif islemno == "3":
     os.system("clear")
     print(Fore.RED + '')  
     print('''
@@ -204,8 +199,7 @@ elif islemno == "3":
  ███░░░░░███  ███░░░░███ ░░███
 ░███    ░░░  ███    ░░███ ░███
 ░░█████████ ░███     ░███ ░███
- ░░░░░░░░███░███   ██░███ ░███
- ███    ░███░░███ ░░████  ░███      █
+ ░░░░░░░░███░███   ██░███ ░███      █
 ░░█████████  ░░░██████░██ ███████████
  ░░░░░░░░░     ░░░░░░ ░░ ░░░░░░░░  ''')
     print(Style.RESET_ALL)
@@ -226,100 +220,5 @@ elif islemno == "3":
     os.system("python3 sqlmap.py -u " + hedefip + " -D " + db + " -T " + tb + " -C " + cl + " --dump")
 
 elif islemno == "4":
-
-    os.system("clear")
-    print(Fore.MAGENTA + '')
-    print("""
-    >>==========================================<<
-    || _ .-') _                                 ||
-    ||( (  OO) )                                ||
-    || \     .'_   ,-.-')   ,----.              ||
-    || ,`'--..._)  |  |OO) '  .-./-')           ||
-    || |  |  \  '  |  |  \ |  |_( O- )          ||
-    || |  |   ' |  |  |(_/ |  | .--, \          ||
-    || |  |   / : ,|  |_.'(|  | '. (_/          ||
-    || |  '--'  /(_|  |    |  '--'  |           ||
-    || `-------'   `--'     `------'   1.1v     ||
-    >>==========================================<< """)
-    print(Fore.RED + '')
-
-    def dig_domain(domain):
-        print("---------------------------------------------------------------")
-        print(f"Dig +trace result of the {domain}")
-        print("---------------------------------------------------------------")
-
-        with open("digtrace", "w") as digtrace:
-            subprocess.run(["dig", "+nocmd", domain, "a", "+noall", "+answer"], stdout=digtrace)
-            subprocess.run(["dig", "+nocmd", domain, "ns", "+noall", "+answer"], stdout=digtrace)
-            subprocess.run(["dig", "+trace", "@8.8.8.8", domain], stdout=digtrace)
-
-        with open("digtrace", "r") as digtrace:
-            result_lines = digtrace.readlines()
-
-            if not result_lines:
-                print("No dig +trace result found.")
-                return
-
-            sorted_result = sorted(set(result_lines), key=lambda x: x.split()[-1] if x.split() else '')
-
-            for line in sorted_result:
-                print(line)
-
-        subprocess.run(["rm", "-f", "digtrace"])
-
-        print("---------------------------------------------------------------")
-        print(f"MX Record Result of the {domain}")
-        print("---------------------------------------------------------------")
-        subprocess.run(["dig", "+nocmd", domain, "mx", "+noall", "+answer", "|", "sort", "-k", "5"])
-
-        print("---------------------------------------------------------------")
-        print(f"TXT Record Result of the {domain}")
-        print("---------------------------------------------------------------")
-        subprocess.run(["dig", "+nocmd", domain, "txt", "+noall", "+answer"])
-
-        result = subprocess.run(["dig", "+nocmd", domain, "a", "+noall", "+answer"], capture_output=True, text=True)
-        ip_match = re.search(r'\b(?:\d{1,3}\.){3}\d{1,3}\b', result.stdout)
-
-        if ip_match:
-            ip = ip_match.group(0)
-
-            print("---------------------------------------------------------------")
-            print(f"PTR record result of the {ip}")
-            print("---------------------------------------------------------------")
-            subprocess.run(["dig", "-x", ip, "+noall", "+answer"])
-
-            result_mx = subprocess.run(["dig", "+nocmd", domain, "mx", "+noall", "+answer"], capture_output=True, text=True)
-            mx_ip_match = re.search(r'\b(?:\d{1,3}\.){3}\d{1,3}\b', result_mx.stdout)
-
-            if mx_ip_match:
-                mx_ip = mx_ip_match.group(0)
-
-                print("---------------------------------------------------------------")
-                print(f"Telnet trying to connect that IP Result of the {mx_ip}")
-                print("---------------------------------------------------------------")
-
-                subprocess.run(["nc", ip, "587"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=3)
-                subprocess.run(["nc", ip, "25"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=1)
-            else:
-                print("No MX IP found.")
-        else:
-            print("No IP found.")
-
-        print("---------------------------------------------------------------")
-        print(f"WHOIS Result of the {domain}")
-        print("---------------------------------------------------------------")
-        subprocess.run(["whois", domain])
-
-    if __name__ == "__main__":
-        domain = input("Enter host: ")
-
-        if re.match(r'^((?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,6}$', domain):
-            print(f"Your domain name looks like this: {domain}")
-            dig_domain(domain)
-
-elif islemno == "5":
     print(Fore.GREEN + 'See you later...') 
     print(Style.RESET_ALL) 
-
-if __name__ == "__main__":
-    main()
