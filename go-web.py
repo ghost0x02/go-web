@@ -155,7 +155,7 @@ while not target_host:
 scan_open_ports(target_host)
 
 
-elif islemno == "2":
+if islemno == "2":
     os.system("clear")
     print(Fore.MAGENTA + "")
     print("""
@@ -196,7 +196,7 @@ _)      \.___.,|     .'
     except subprocess.CalledProcessError as e:
         print(f"An error occurred: {e}")
 
-elif islemno == "3":
+if islemno == "3":
     os.system("clear")
     print(Fore.RED + '')  
     print('''
