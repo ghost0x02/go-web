@@ -152,7 +152,7 @@ while not target_host:
     print("Please enter a valid host name.")
     target_host = input("Target Host: ")
     
-  scan_open_ports(target_host)
+scan_open_ports(target_host)
 
 elif islemno == "2":
     os.system("clear")
