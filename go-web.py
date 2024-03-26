@@ -1,3 +1,4 @@
+
 import scapy.all as scapy
 import nmap
 import socket
@@ -10,8 +11,10 @@ import re
 import requests
 import os
 
-os.system("pip3 install python-nmap")
-os.system("clear")
+def main():
+
+    os.system("pip3 install python-nmap")
+    os.system("clear")
 
 print(Fore.RED + '')
 
@@ -73,17 +76,15 @@ print(Style.RESET_ALL)
 print(Fore.RED + '')
 print('''
 ++++++++++++++++++
-1) MACHINES CONNECTED TO YOUR INTERNET
+1) PORT SCANNER
 ++++++++++++++++++
-2) PORT SCANNER
+2) ADMİN FİNDER
 ++++++++++++++++++
-3) ADMİN FİNDER
+3) OTO SQL
 ++++++++++++++++++
-4) OTO SQL
+4) DİG 'DNS' SCANNER
 ++++++++++++++++++
-5) DİG 'DNS' SCANNER
-++++++++++++++++++
-6) EXIT
+5) EXIT
 ++++++++++++++++++
 ''')
 print(Style.RESET_ALL)
@@ -91,55 +92,9 @@ print(Fore.MAGENTA + '')
 islemno = input("root@GOweb:~ ")
 print(Style.RESET_ALL)
 
-islemno = "1"
 
 if islemno == "1":
-    def get_own_ip():
-        ip_output = subprocess.check_output(['ip', 'route'])
-        ip_pattern = re.compile(r'src (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})')
-        own_ip = ip_pattern.search(ip_output.decode()).group(1)
-        return own_ip
 
-    def get_device_names(ip_addresses):
-        device_names = {}
-        for ip in ip_addresses:
-            try:
-                hostname = socket.gethostbyaddr(ip)[0]
-                device_names[ip] = hostname
-            except socket.herror:
-                device_names[ip] = "Unknown"
-        return device_names
-
-    def scan(ip):
-        arp_request = scapy.ARP(pdst=ip)
-        broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
-        arp_request_broadcast = broadcast/arp_request
-        answered_list = scapy.srp(arp_request_broadcast, timeout=1, verbose=False)[0]
-        clients_list = []
-        for element in answered_list:
-            client_dict = {"ip": element[1].psrc, "mac": element[1].hwsrc}
-            clients_list.append(client_dict)
-        return clients_list
-
-    def print_result(results_list, device_names):
-        print("IP Adres\t\tMAC Adres\t\tCihaz İsmi\n---------------------------------------------------")
-        for client in results_list:
-            ip = client["ip"]
-            mac = client["mac"]
-            device_name = device_names[ip]
-            print(f"{ip}\t\t{mac}\t\t{device_name}")
-
-    own_ip = get_own_ip()
-    ip_range = own_ip.rsplit('.', 1)[0] + '.1/24'
-    scan_result = scan(ip_range)
-    ip_addresses = [client["ip"] for client in scan_result]
-    device_names = get_device_names(ip_addresses)
-    print_result(scan_result, device_names)
-
-
-
-
-if islemno == "2":
     os.system("clear")
     print(Fore.YELLOW + 'A DETAILED SCANNING IS BEING PERFORMED IN ONE MINUTE...')
     time.sleep(2)
@@ -210,9 +165,8 @@ if islemno == "2":
     target_host = input("Enter host: ")
     scan_open_ports(target_host)
 
+elif islemno == "2":
 
-
-elif islemno == "3":
     os.system("clear")
     print(Fore.MAGENTA + "")
     print("""
@@ -244,8 +198,9 @@ elif islemno == "3":
         subprocess.run(command, shell=True, check=True)
     except subprocess.CalledProcessError as e:
         print(f"An error occurred: {e}")
+        
+elif islemno == "3":
 
-elif islemno == "4":
     os.system("clear")
     print(Fore.RED + '')  
     print('''
@@ -274,7 +229,8 @@ elif islemno == "4":
     cl = input("Choose which columns you will capture: ")
     os.system("python3 sqlmap.py -u " + hedefip + " -D " + db + " -T " + tb + " -C " + cl + " --dump")
 
-elif islemno == "5":
+elif islemno == "4":
+
     os.system("clear")
     print(Fore.MAGENTA + '')
     print("""
@@ -364,7 +320,10 @@ elif islemno == "5":
         if re.match(r'^((?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,6}$', domain):
             print(f"Your domain name looks like this: {domain}")
             dig_domain(domain)
-elif islemno == "6":
+
+elif islemno == "5":
     print(Fore.GREEN + 'See you later...') 
     print(Style.RESET_ALL) 
 
+if __name__ == "__main__":
+    main()
