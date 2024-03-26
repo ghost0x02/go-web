@@ -145,16 +145,14 @@ def scan_open_ports(target_host):
     if open_ports:
         print(Fore.GREEN + f"\n{target_host} open port: {open_ports}" + Style.RESET_ALL)
     else:
-        print(Fore.RED + "no open port found." + Style.RESET_ALL)
+        print(Fore.RED + "No open port found." + Style.RESET_ALL)
 
-if __name__ == "__main__":
-while True:
+target_host = input("Target Host: ")
+while not target_host:
+    print("Please enter a valid host name.")
     target_host = input("Target Host: ")
-    if target_host:
-        scan_open_ports(target_host)
-        break
-    else:
-        print("Please enter a valid host name.")
+    
+scan_open_ports(target_host)
 
 elif islemno == "2":
     os.system("clear")
