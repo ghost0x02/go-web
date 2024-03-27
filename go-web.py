@@ -29,6 +29,7 @@ print(Fore.MAGENTA + 'CODED BY ENESXSEC AND GHOST0x02')
 print(Fore.YELLOW + '')
 print('services my instagram account: xsecit')
 print('THIS SOFTWARE IS FOR TESTING!!!')
+print('THE PROGRAM WORKS WITH ROOT!')
 print('___________________________________________________________')
 
 def yukleme_animasyonu():
