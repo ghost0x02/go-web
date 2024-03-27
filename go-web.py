@@ -131,16 +131,6 @@ example: google.com
 
     print(Fore.RED + "")
     
-    hedefip = input("2st scan is over, press enter to move on to the next scan: ")
-    
-    hedefip = input("Enter Host: ")
-
-    print(Fore.MAGENTA + "")
-    
-    os.system("nmap -sO -v "+hedefip)
-
-    print(Fore.RED + "")
-    
     print("Scan Done...")
 
 if islemno == "2":
