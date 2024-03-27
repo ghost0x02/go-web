@@ -111,28 +111,36 @@ if islemno == "1":
 example: google.com
 ''')
 
+    print(Fore.RED + "")
+    
     hedefip = input("Enter Host: ")
 
+    print(Fore.MAGENTA + "")
+    
     os.system("nmap "+hedefip)
 
+    print(Fore.RED + "")
+    
     hedefip = input("1st scan is over, press enter to move on to the next scan: ")
 
     hedefip = input("Enter Host: ")
 
+    print(Fore.MAGENTA + "")
+    
     os.system("nmap -sO -v "+hedefip)
 
+    print(Fore.RED + "")
+    
     hedefip = input("2st scan is over, press enter to move on to the next scan: ")
-
+    
     hedefip = input("Enter Host: ")
 
+    print(Fore.MAGENTA + "")
+    
     os.system("nmap -sO -v "+hedefip)
 
-    hedefip = input("3st scan is over, press enter to move on to the next scan: ")
-
-    hedefip = input("Enter Host: ")
-
-    os.system("nmap -v -sA"+hedefip)
-
+    print(Fore.RED + "")
+    
     print("Scan Done...")
 
 if islemno == "2":
