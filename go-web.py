@@ -83,7 +83,7 @@ print(Fore.MAGENTA + '')
 islemno = input("root@GOweb:~ ")
 print(Style.RESET_ALL)
 
- if islemno == "1":
+if islemno == "1":
     os.system("clear")
     print(Fore.YELLOW + 'A detailed scan will be done in one minute...')
     time.sleep(2)
@@ -109,52 +109,34 @@ print(Style.RESET_ALL)
        \| |/
         \_/
 example: google.com
-''')   
+''')
 
-def scan_port(target_host, target_port):
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.settimeout(1)
-    result = sock.connect_ex((target_host, target_port))
-    sock.close()
-    if result == 0:
-        service_name = socket.getservbyport(target_port)
-        return target_port, service_name
+    hedefip = input("Enter Host: ")
 
-def scan_open_ports(target_host):
-    print(Fore.GREEN + "This process may take some time...")
-    print(Style.RESET_ALL)
+    os.system("nmap "+hedefip)
 
-    try:
-        target_ip = socket.gethostbyname(target_host)
-    except socket.gaierror:
-        print("Invalid or Not found.")
-        return
+    hedefip = input("1st scan is over, press enter to move on to the next scan: ")
 
-    open_ports = []
+    hedefip = input("Enter Host: ")
 
-    with ThreadPoolExecutor() as executor:
-        futures = [executor.submit(scan_port, target_ip, port) for port in range(1, 1025)]
+    os.system("nmap -sO -v "+hedefip)
 
-        for future in futures:
-            result = future.result()
-            if result:
-                port, service_name = result
-                print(f"Port {port}: {Fore.GREEN}Open{Style.RESET_ALL} - Service: {service_name}")
-                open_ports.append(port)
+    hedefip = input("2st scan is over, press enter to move on to the next scan: ")
 
-    if open_ports:
-        print(Fore.GREEN + f"\n{target_host} open port: {open_ports}" + Style.RESET_ALL)
-    else:
-        print(Fore.RED + "No open port found." + Style.RESET_ALL)
+    hedefip = input("Enter Host: ")
 
-target_host = input("Target Host: ")
-while not target_host:
-    print("Please enter a valid host name.")
-    target_host = input("Target Host: ")
-    
-scan_open_ports(target_host)
+    os.system("nmap -sO -v "+hedefip)
 
-elif islemno == "2":
+    hedefip = input("3st scan is over, press enter to move on to the next scan: ")
+
+    hedefip = input("Enter Host: ")
+
+    hedefip = input("nmap -v -sA"+hedefip)
+
+    print("Scan Done...")
+
+if islemno == "2":
+
     os.system("clear")
     print(Fore.MAGENTA + "")
     print("""
@@ -173,7 +155,7 @@ elif islemno == "2":
  |    `.       | `' \Zq
 _)      \.___.,|     .'
 \____   )MMMMMP|   .'
-     `-'       `--' hjm
+     `-'       `--' LOVE LINUX 
 """)
 
     print(Style.RESET_ALL)
@@ -183,7 +165,7 @@ _)      \.___.,|     .'
     print('''
     ./okadminfinder.py -u https = http link -r ''')
 
-    hedefip = input("Enter host: ")
+    hedefip = input("Enter Host: ")
     os.system('pip3 install trio')
     os.system('pip3 install socksio')
     os.system("git clone https://github.com/mIcHyAmRaNe/okadminfinder3.git")
@@ -195,7 +177,7 @@ _)      \.___.,|     .'
     except subprocess.CalledProcessError as e:
         print(f"An error occurred: {e}")
 
-elif islemno == "3":
+if islemno == "3":
     os.system("clear")
     print(Fore.RED + '')  
     print('''
@@ -223,5 +205,6 @@ elif islemno == "3":
     cl = input("Choose which columns you will capture: ")
     os.system("python3 sqlmap.py -u " + hedefip + " -D " + db + " -T " + tb + " -C " + cl + " --dump")
 
-elif islemno == "4":
-    print(Fore.GREEN + 'See you later...')
+if islemno == "4":
+    print(Fore.GREEN + 'See you later...') 
+    print(Style.RESET_ALL) 
