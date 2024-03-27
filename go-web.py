@@ -131,7 +131,7 @@ example: google.com
 
     hedefip = input("Enter Host: ")
 
-    hedefip = input("nmap -v -sA"+hedefip)
+    os.system("nmap -v -sA"+hedefip")
 
     print("Scan Done...")
 
